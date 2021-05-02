@@ -15,6 +15,7 @@ public class BeelBalam1 {
      * @param args the command line arguments
      */
    	public int numero = 0;
+        public int numero2 =9;
     public static void main(String[] args) {
         // TODO code application logic here
     }

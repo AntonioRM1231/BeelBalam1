@@ -26,6 +26,10 @@
                       <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="239" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="232" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="256" max="32767" attributes="0"/>
           </Group>
@@ -38,7 +42,9 @@
               <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="56" max="-2" attributes="0"/>
-              <EmptySpace pref="182" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,6 +58,11 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="PRUEBA DE LA RAMA A"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PRUEBA 2 DE LA RAMA A"/>
       </Properties>
     </Component>
   </SubComponents>

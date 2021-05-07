@@ -17,7 +17,7 @@ public class BeelBalam1 {
     /**
      * @param args the command line arguments
      */
-   	
+    
     public static void main(String[] args) {
         try {
             Connection c = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433", "sa", "2020640576");
@@ -28,6 +28,7 @@ public class BeelBalam1 {
             System.out.println("Error :c");
             e.printStackTrace();
         }
+        //soy itzel
     }
     
 }

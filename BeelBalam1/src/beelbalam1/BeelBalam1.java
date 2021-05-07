@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beelbalam1;
+package beelbalam1;   
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,7 +17,11 @@ public class BeelBalam1 {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
    // espero que salga	
+=======
+    
+>>>>>>> 0400bc09e4bb7ab4a181944d54f33e7a55a1a806
     public static void main(String[] args) {
         try {
             Connection c = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433", "sa", "2020640576");

@@ -28,7 +28,6 @@ public class BeelBalam1 {
             System.out.println("Error :c");
             e.printStackTrace();
         }
-        //soy itzel
     }
     
 }

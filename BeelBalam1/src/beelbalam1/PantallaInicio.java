@@ -168,6 +168,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         panelReg = new PanelRegistro();
         //Ajustando el tamaño
         panelReg.setBounds(panelPrincipal.getBounds());
+        panelPrincipal.removeAll();
         //Agregando el panel de Registro al principal
         panelPrincipal.add(panelReg);
         //Yase agregó, pero ahora se tiene que "repintar" la interfaz (actualizar)

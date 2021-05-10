@@ -1,0 +1,420 @@
+[33mcommit b64aa16ed2a41119650c4fd2f9363204e8306e6b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 248ffbf f3428d6
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Mon May 10 00:28:17 2021 -0500
+
+    Merge branch 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit 248ffbf637de816b05a942e6521259928a11fe40[m
+Merge: c92140c ed0c032
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Mon May 10 00:26:45 2021 -0500
+
+    Merge branch 'anahi' ptos acum
+
+[33mcommit ed0c032c7c39b98949e32b77eeb69a70ef60a2e0[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Mon May 10 00:26:13 2021 -0500
+
+    Agregue lo de modificar puntos acumulados al PA da cancelar reserva
+
+[33mcommit f3428d63236268c8084bfc980e61ba6e0a50eef1[m
+Merge: c92140c 791ca5b
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 22:51:04 2021 -0500
+
+    cambios en la interfaz
+
+[33mcommit 791ca5b6b8d2c4cf15744db6de7b835434690dba[m[33m ([m[1;31morigin/ramaItzel[m[33m)[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 22:49:03 2021 -0500
+
+    cambios en la interfaz
+
+[33mcommit c92140cf99dddc93246e82d780b3fb505a483c7e[m
+Merge: b836720 6a41228
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sun May 9 22:22:10 2021 -0500
+
+    Merge branch 'anahi' para PA
+
+[33mcommit 6a41228a4807fecde94f96120b0035fce33cd830[m[33m ([m[1;31morigin/anahi[m[33m)[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sun May 9 22:12:16 2021 -0500
+
+    PA de eliminar usuario y cancelar reserva
+
+[33mcommit b836720df1797f46aab5a4941e64ed70e2b2f709[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 21:46:38 2021 -0500
+
+    agregué proc almacenado para editar datos del usuario y paar comprar boletos
+
+[33mcommit 0522f1d2c8b61029be67f95d2114c92a302a84fd[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 20:19:07 2021 -0500
+
+    agregué proc almacenado para editar datos del usuario
+
+[33mcommit fae03d29143e9583634090eaa4becdd947e8b075[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 20:09:13 2021 -0500
+
+    agregué proc almacenado para editar datos del usuario
+
+[33mcommit 9ef1196a301e1eb12246899fbe5844291c87fb46[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 17:56:32 2021 -0500
+
+    agregué proc almacenado para editar datos del usuario
+
+[33mcommit 54722c039b51ab9c2fbc39cac36fe2ec5224c2ed[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sun May 9 00:09:48 2021 -0500
+
+    Agrega el PA para crear usuarios
+
+[33mcommit 4b5e223d60e4531d1b49021550a07cff1e98eb36[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 14:13:11 2021 -0500
+
+    Pequeños cambios en el panel de compras (alinear componentes)
+
+[33mcommit a8fec7a4d32b996277f558cc96057da58cac84af[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 14:06:58 2021 -0500
+
+    Agrego la acción en los dos botones de la pantalla de inicio
+
+[33mcommit 07f53a3ed69eaa62d7696013a737aab93bf572a7[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 13:56:35 2021 -0500
+
+    Hice un removeAll al panel principal
+
+[33mcommit f7046a980052c2ec64300e96eb9e3967e028d182[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 13:47:52 2021 -0500
+
+    Agregue la accion de cambiar de panel con el botón de registro
+
+[33mcommit 4d8186c6a69dba9272b9d88a5c557fdc2dea5c48[m[33m ([m[1;31morigin/AnahiS[m[33m)[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 13:02:47 2021 -0500
+
+    Agregue la enum de Caribe 1 y 2
+
+[33mcommit dbbb71fc26ecd93df6743fc6b364da36aa9531bb[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:45:16 2021 -0500
+
+    Agregue etiqueta al inicio del panel de compras 2
+
+[33mcommit c088b66a860a7372d4b1bf5d2459f50c13d58ffb[m
+Merge: 8a3b8ce 6adb5d5
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:39:41 2021 -0500
+
+    Cambios en panel de compras 2 a
+
+[33mcommit 6adb5d580be0f91cf7824f7ce70caa1b6a2c0c2b[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:33:36 2021 -0500
+
+    Agregue el panel de compras 2
+
+[33mcommit 8a3b8ce540f25ea0a837314191619d7f505ffd3d[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:16:48 2021 -0500
+
+    Borre un comentario de HEAD
+
+[33mcommit 5c8620e211dd75dde8fd55eb9071d1add8ccd704[m
+Merge: ff4e271 41bda7d
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:06:29 2021 -0500
+
+    Merge branch 'ramaAna' para tener los cambios de las enumeraciones
+
+[33mcommit 41bda7dce8fc48867b051390f54a24f51f1c56cf[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 11:05:34 2021 -0500
+
+    Agregue numeraciones de las estaciones
+
+[33mcommit ff4e27148e0c9ea776776ad1967227a10f491e7d[m
+Merge: 802db45 b374fd8
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 10:22:40 2021 -0500
+
+    Merge 10:25 branch 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit 802db45102832586f617b190ca690924cfc07077[m
+Merge: 0400bc0 a840bb8
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 10:20:11 2021 -0500
+
+    C Panel
+
+[33mcommit b374fd87c5f7a5a5e5fd16b3db9fcc4cad1d4683[m
+Merge: b39ff77 0400bc0
+Author: AntonioRM1231 <rodriguezantony1231@gmail.com>
+Date:   Fri May 7 10:08:44 2021 -0500
+
+    Comentario
+
+[33mcommit b39ff772a4044c113d8c314ee77fcc8077cf3f80[m
+Author: AntonioRM1231 <rodriguezantony1231@gmail.com>
+Date:   Fri May 7 09:57:01 2021 -0500
+
+    Comentario
+
+[33mcommit a840bb8e691cf3027cefef9af1637930d9a4f7ed[m[33m ([m[1;31morigin/ramaAna[m[33m)[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 09:43:22 2021 -0500
+
+    Agregue componentes en el panel de compras y cambie sus nombres
+
+[33mcommit 91b8aa0789dd72213f6a119987c27312af2c2571[m[33m ([m[1;31morigin/ramaT[m[33m)[m
+Author: AntonioRM1231 <rodriguezantony1231@gmail.com>
+Date:   Fri May 7 09:35:45 2021 -0500
+
+    Se modifico
+
+[33mcommit 0400bc09e4bb7ab4a181944d54f33e7a55a1a806[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Fri May 7 09:20:21 2021 -0500
+
+    C
+
+[33mcommit c0d77aa398b1ab9f0369e3ecbbe3906973eb9a71[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Fri May 7 09:17:30 2021 -0500
+
+    Agrego el código de sql para crear la base de datos
+
+[33mcommit 37312df16cc297c03886c8bbf926cfb0dfff8bfe[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Fri May 7 09:12:38 2021 -0500
+
+    cambie los nombres a los elementos del panel
+
+[33mcommit a8eb34cdf0e40f0aae1f24be19348ab33983ca87[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Fri May 7 09:04:10 2021 -0500
+
+    cambie los nombres a los elementos del panel
+
+[33mcommit 4d7e45c22e6d57751eb0257d02370fb2aecd4a7f[m
+Merge: 6a4f1c7 045255f
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 22:48:28 2021 -0500
+
+    Merge branch A 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit 6a4f1c7c68884255ff2203013922f94a57e23fe9[m
+Merge: 90cf900 d4e0ee9
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 22:46:58 2021 -0500
+
+    Merge branch 'ramaAna' fusion de la rama 10:47
+
+[33mcommit d4e0ee9295e15cbaf48ea1640d53ce949368b63a[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 22:46:26 2021 -0500
+
+    Agregue un comentario en el panel de registro
+
+[33mcommit 045255f4a7bc7e93a44a1fbf8c8af90e0920fd8e[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 22:42:23 2021 -0500
+
+    quité comentario
+
+[33mcommit 90cf9004fabd3b92dbf554c9d5618ce19c4f355d[m
+Merge: e5d7aeb ce7a466
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 22:33:38 2021 -0500
+
+    Merge branch 'itzel'
+
+[33mcommit ce7a466e1611abc9b4e08009c76e955ca0681f33[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 22:33:12 2021 -0500
+
+    borre soyItzel.txt
+
+[33mcommit e5d7aebb8b5a0b3b4ffc620313930a7add5d7280[m
+Merge: 19f7724 97d2f8d
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 22:25:21 2021 -0500
+
+    Merge branch 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit 97d2f8d5cdf08b33504630462f6636a590ca22dc[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 22:21:17 2021 -0500
+
+    Agregue componentes en el panel de registro y cambie sus nombres
+
+[33mcommit 91a54a61132ee8db688e4c862128bbffdedfa53f[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 21:50:05 2021 -0500
+
+    Agregué el panel de registro de tarjeta
+
+[33mcommit 19f77249f194071da47a9799d1d260624a53aef7[m
+Merge: ab038a1 7481cdb
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 20:48:58 2021 -0500
+
+    Merge branch 'itzel'
+
+[33mcommit 7481cdbaee9c896b1b7980b843a890a71849d7bc[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 20:47:40 2021 -0500
+
+    agregue un comentario en el main
+
+[33mcommit ab038a1478095900562868d1a259e862192b3388[m
+Merge: 31ef51a 1a82548
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 20:38:57 2021 -0500
+
+    Merge branch 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit 7571d607c6a6eaf6f5efac8c1f9d79150ee4d2cf[m
+Merge: 31ef51a 1a82548
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 20:34:34 2021 -0500
+
+    Merge branch 'master' of https://github.com/AntonioRM1231/BeelBalam1 into itzel
+
+[33mcommit 1a8254894549bf21ec494811aec5c1815bbf2835[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 19:11:23 2021 -0500
+
+    Cambie de color el panel de registro
+
+[33mcommit 31ef51a2937e2aafc80ddc104ef5f0ef93d517bd[m
+Merge: 7beeacc f218016
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 18:59:47 2021 -0500
+
+    Merge branch 'master' of https://github.com/AntonioRM1231/BeelBalam1
+
+[33mcommit f21801615c5f88e8202d265538541e6425d5d8a9[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 18:51:11 2021 -0500
+
+    Cambio de la prueba 2 en la rama
+
+[33mcommit a8a13e6b3d543b88e34aefa8ef2059f1f3e3c2ba[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 18:34:25 2021 -0500
+
+    Etiqueta de la rama A
+
+[33mcommit b805c080c5d56bd719947645c24d07e62bd83784[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 18:07:03 2021 -0500
+
+    Etiqueta de prueba
+
+[33mcommit 7beeacc8291334d205804c5d1c4befad7b779027[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Thu May 6 12:06:18 2021 -0500
+
+    add info
+
+[33mcommit 33a71934dd567076b51ad0c07c2bc541cd8453c0[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 09:41:34 2021 -0500
+
+    Comentario
+
+[33mcommit 95a15f42bf665454652da646ec6b23f7d24a3395[m
+Merge: bb840b4 c497c78
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 09:39:41 2021 -0500
+
+    Pruebaaaa
+
+[33mcommit bb840b40bea5d6940fa88bb0121377c1f8afb12b[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Thu May 6 09:27:02 2021 -0500
+
+    Agregre label Registro
+
+[33mcommit c497c7865d5b14067a2aa19b5404a021fb1b790f[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sat May 1 22:35:47 2021 -0500
+
+    Borre el archivo SoyItzel.txt y agregué en la clase principal el codigo para conectarnos a la bd
+
+[33mcommit 659c19ded0a61a2d95fe6f0a4ab28ef1fa02f784[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sat May 1 21:00:07 2021 -0500
+
+    Cambio interfaz
+
+[33mcommit 5337a08e4f5b0a8b4eea20c26944d4e95cea9cce[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sat May 1 20:56:25 2021 -0500
+
+    Inicio de la interfaz
+
+[33mcommit c45d6994b1f9a0dc51ea7aa269a9b044f3dda2bf[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sat May 1 20:42:12 2021 -0500
+
+    Agregue paneles y pantalla principal
+
+[33mcommit f77a2ce090d1a22e95a55cd5feb4df0fb8eaa74e[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sat May 1 20:18:15 2021 -0500
+
+    Reiniciando todo
+
+[33mcommit f22370ee67c8a67770c4b1bfac3f521494d88e18[m
+Merge: dd9cf9a a9dfd0e
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sat May 1 20:13:25 2021 -0500
+
+    no se que esta pasando
+
+[33mcommit dd9cf9a13cc0e227a217adbdaff57dcb3f347f80[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sat May 1 20:10:00 2021 -0500
+
+    Quite mi var
+
+[33mcommit a9dfd0e0d2f3df8360a9454556da5d726bb57379[m
+Author: AntonioRM1231 <rodriguezantony1231@gmail.com>
+Date:   Sat May 1 20:07:48 2021 -0500
+
+    Agregue una nueva variable
+
+[33mcommit 28cb02fdac611d557b6eebcb2c046552edc70bff[m
+Author: Anahi Salto L <anahisalto16@gmail.com>
+Date:   Sat May 1 20:00:49 2021 -0500
+
+    Holaaaa
+
+[33mcommit eaf422a59046ca392c4be330c048fca69e5b4a50[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sat May 1 19:53:14 2021 -0500
+
+    Pueba de commit
+
+[33mcommit 6dfa1270b14ba5aeb69d18cbec6ae42b3fb6604f[m
+Author: Itzel <icabrerav1600@alumno.ipn.mx>
+Date:   Sat May 1 19:49:58 2021 -0500
+
+    prueba del commit
+
+[33mcommit af96c76138c0cadff03a531fee69c4fab37529fb[m
+Author: AntonioRM1231 <rodriguezantony1231@gmail.com>
+Date:   Sat May 1 19:34:14 2021 -0500
+
+    Subiendo Archivos

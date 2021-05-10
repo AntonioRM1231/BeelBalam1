@@ -74,15 +74,60 @@ END
 --PRUEBA
 EXECUTE EDITAR_USUARIO 'pollito',NULL,'CNSDKNC',NULL,'9987889234','1134567890123456',NULL,NULL,NULL,NULL,NULL,NULL
 
-
+DROP PROCEDURE COMPRA_BOLETOS
 CREATE PROCEDURE COMPRA_BOLETOS(
-@c_id,
-@c_primerNombre,
-@c_segundoNombre,
-
-@n_asiento,
+@c_primerNombre VARCHAR (15),--
+@c_segundoNombre VARCHAR (15),--
+@c_primerApellido VARCHAR (15),--
+@c_segundoApellido VARCHAR (15),--
+@c_edad INT,--
+@c_nacionalidad VARCHAR (25),--
+@matTren VARCHAR (25),--
+@fechaReserva DATETIME,--
+@u_nombre VARCHAR (25),--
+@tr_nombre VARCHAR (25)--
 )
 AS
-BEGIN 
+BEGIN
+	IF((SELECT CAPACIDAD FROM TREN WHERE MAT_TREN = @matTren) > 0 )
+		BEGIN
+			DECLARE @nClientes INT;
+			SET @nClientes = (SELECT COUNT(*) FROM CLIENTE)+1;
+			--crea un cliente
+			INSERT INTO CLIENTE
+			VALUES(@nClientes,@c_primerNombre,@c_segundoNombre,@c_primerApellido,@c_segundoApellido,@c_edad,@c_nacionalidad);
 
+			--genera una reserva
+			DECLARE @nReservas INT;
+			SET @nReservas = (SELECT COUNT(*) FROM RESERVA)+1;
+			INSERT INTO RESERVA
+			VALUES (@nReservas,@fechaReserva,@u_nombre,@tr_nombre,@nClientes,0.0);
+
+			--actualiza la capacidad del tren
+			UPDATE TREN SET CAPACIDAD = CAPACIDAD - 1 WHERE MAT_TREN = @matTren;
+
+			--calcula el costo 
+			DECLARE @costo INT;
+			DECLARE @puntos INT;
+			DECLARE @puntosAbonados INT;
+			SET @costo = (SELECT COSTO_TR FROM TRAMO WHERE NOMBRE_TR = @tr_nombre);
+			SET @puntos = (SELECT PTOS_ACUM_U FROM USUARIO WHERE NOMBRE_U = @u_nombre);
+
+			IF (@puntos >= 100)
+			BEGIN
+				SET @puntosAbonados = 10*(@costo % 700); --puntos que se le van a abonar
+				SET @costo = @costo - 300; --descuento
+				SET @puntos = (@puntos-100) + @puntosAbonados; --disminuyen los puntos
+		
+				UPDATE USUARIO SET PTOS_ACUM_U = @puntos WHERE NOMBRE_U = @u_nombre;
+			END
+		END
+	ELSE 
+		BEGIN 
+			SELECT 'NO HAY ASIENTOS DISPONIBLES'
+		END
 END
+
+EXECUTE COMPRA_BOLETOS 'ISAIAS','YOSAHANDI','ANGEL',NULL,12,'MEXICANA','456FHS','12/10/21','pollito','TC2'
+
+SELECT * FROM CLIENTE

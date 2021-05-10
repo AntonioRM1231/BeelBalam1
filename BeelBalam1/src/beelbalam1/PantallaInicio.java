@@ -7,7 +7,7 @@ package beelbalam1;
 
 
 /**
- *
+ *yei
  * @author Anahi SC
  */
 public class PantallaInicio extends javax.swing.JFrame {

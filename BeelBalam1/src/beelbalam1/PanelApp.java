@@ -35,6 +35,11 @@ public class PanelApp extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 153, 255));
 
         btnVerPerfil.setText("Ver Perfil");
+        btnVerPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPerfilActionPerformed(evt);
+            }
+        });
 
         btnComprar.setText("Comprar Boleto");
 
@@ -87,6 +92,10 @@ public class PanelApp extends javax.swing.JPanel {
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerPerfilActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

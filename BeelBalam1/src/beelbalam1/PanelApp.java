@@ -5,6 +5,8 @@
  */
 package beelbalam1;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Itzel Cabrera
@@ -95,11 +97,11 @@ public class PanelApp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHistorialActionPerformed
-        panelHistorial = new PanelHistorial();
-        panelHistorial.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(panelHistorial);
-        this.updateUI();
+        //panelHistorial = new PanelHistorial();
+        //panelHistorial.setBounds(this.getBounds());
+        //this.removeAll();
+        //this.add(panelHistorial);
+        //this.updateUI();
     }//GEN-LAST:event_btnVerHistorialActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
@@ -108,19 +110,19 @@ public class PanelApp extends javax.swing.JPanel {
 
     private void btnVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPerfilActionPerformed
 
-        panelVerPerfil = new PanelVerPerfil();
-        panelVerPerfil.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(panelVerPerfil);
-        this.updateUI();
+       // panelVerPerfil = new PanelVerPerfil();
+        //panelVerPerfil.setBounds(this.getBounds());
+        //this.removeAll();
+        //this.add(panelVerPerfil);
+        //this.updateUI();
     }//GEN-LAST:event_btnVerPerfilActionPerformed
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        panelCompras = new PanelCompras2();
-        panelCompras.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(panelCompras);
-        this.updateUI();
+        //panelCompras = new PanelCompras2();
+        //panelCompras.setBounds(this.getBounds());
+        //this.removeAll();
+        //this.add(panelCompras);
+        //this.updateUI();
     }//GEN-LAST:event_btnComprarActionPerformed
 
         // TODO add your handling code here:

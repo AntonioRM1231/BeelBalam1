@@ -14,6 +14,7 @@ public class Window extends javax.swing.JPanel {
     /**
      * Creates new form Window
      */
+    PanelCompras2 pc2;
     public Window() {
         initComponents();
         this.btnSaveChanges.setVisible(false);
@@ -44,6 +45,7 @@ public class Window extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -155,15 +157,28 @@ public class Window extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 102, 102));
 
+        jButton1.setText("Vas Toñito");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(272, 272, 272)
+                .addComponent(jButton1)
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jButton1)
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comprar Boleto", jPanel2);
@@ -266,11 +281,20 @@ public class Window extends javax.swing.JPanel {
         this.btnSaveChanges.setVisible(false);
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pc2 = new PanelCompras2();
+        pc2.setBounds(this.getBounds());
+        this.removeAll();
+        this.add(pc2);
+        this.updateUI();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSaveChanges;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

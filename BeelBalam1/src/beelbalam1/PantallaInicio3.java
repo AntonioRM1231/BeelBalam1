@@ -13,7 +13,7 @@ public class PantallaInicio3 extends javax.swing.JFrame {
     
     PanelRegistro panelReg;
     PanelCompras2 panelComp;
-    PanelApp panelApp;
+    //PanelApp panelApp;
     Window panelWindow;
     /**
      * Creates new form PantallaInicio3

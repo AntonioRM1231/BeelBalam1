@@ -13,6 +13,7 @@ public class PantallaInicio3 extends javax.swing.JFrame {
     
     PanelRegistro panelReg;
     PanelCompras2 panelComp;
+    PanelApp panelApp;
     /**
      * Creates new form PantallaInicio3
      */
@@ -151,10 +152,10 @@ public class PantallaInicio3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSActionPerformed
-        panelComp = new PanelCompras2();
-        panelComp.setBounds(panelInic.getBounds());
+        panelApp = new PanelApp();
+        panelApp.setBounds(panelInic.getBounds());
         panelInic.removeAll();
-        panelInic.add(panelComp);
+        panelInic.add(panelApp);
         panelInic.updateUI();
     }//GEN-LAST:event_btnIniciarSActionPerformed
 

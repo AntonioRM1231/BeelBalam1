@@ -14,6 +14,7 @@ public class PanelTarjeta extends javax.swing.JPanel {
     /**
      * Creates new form PanelTarjeta
      */
+    Window PanelWindow;
     public PanelTarjeta() {
         initComponents();
     }
@@ -67,6 +68,11 @@ public class PanelTarjeta extends javax.swing.JPanel {
         jLabel7.setText("    MM        AA");
 
         btnConfTarjeta.setText("ENVIAR DATOS");
+        btnConfTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfTarjetaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -149,6 +155,15 @@ public class PanelTarjeta extends javax.swing.JPanel {
     private void txtApPaternoTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApPaternoTarjetaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApPaternoTarjetaActionPerformed
+
+    private void btnConfTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfTarjetaActionPerformed
+        //Verificar que se haya podido generar usuario
+        PanelWindow = new Window();
+        PanelWindow.setBounds(this.getBounds());
+        this.removeAll();
+        this.add(PanelWindow);
+        this.updateUI();
+    }//GEN-LAST:event_btnConfTarjetaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -29,14 +29,14 @@ public class PanelHistorial extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableHistorial = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 153, 51));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel1.setText("Historial de compras");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -47,7 +47,7 @@ public class PanelHistorial extends javax.swing.JPanel {
                 "ID_Reserva", "ID_Cliente", "Fecha", "Hora", "Tramo", "Estación Inicial", "Estación Final", "Costo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableHistorial);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,6 +77,6 @@ public class PanelHistorial extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableHistorial;
     // End of variables declaration//GEN-END:variables
 }

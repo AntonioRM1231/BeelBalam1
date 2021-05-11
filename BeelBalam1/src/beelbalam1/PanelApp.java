@@ -14,6 +14,10 @@ public class PanelApp extends javax.swing.JPanel {
     /**
      * Creates new form PanelApp
      */
+    PanelHistorial panelHistorial;
+    PanelVerPerfil panelVerPerfil;
+    PanelCompras2 panelCompras;
+    
     public PanelApp() {
         initComponents();
     }
@@ -35,8 +39,18 @@ public class PanelApp extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 153, 255));
 
         btnVerPerfil.setText("Ver Perfil");
+        btnVerPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPerfilActionPerformed(evt);
+            }
+        });
 
         btnComprar.setText("Comprar Boleto");
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
 
         btnVerHistorial.setText("Ver Historial");
         btnVerHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -57,15 +71,15 @@ public class PanelApp extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(66, 66, 66)
                 .addComponent(btnVerPerfil)
-                .addGap(41, 41, 41)
+                .addGap(46, 46, 46)
                 .addComponent(btnComprar)
-                .addGap(40, 40, 40)
+                .addGap(31, 31, 31)
                 .addComponent(btnVerHistorial)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,12 +95,32 @@ public class PanelApp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHistorialActionPerformed
-        // TODO add your handling code here:
+        panelHistorial = new PanelHistorial();
+        panelHistorial.setBounds(this.getBounds());
+        this.removeAll();
+        this.add(panelHistorial);
+        this.updateUI();
     }//GEN-LAST:event_btnVerHistorialActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPerfilActionPerformed
+        panelVerPerfil = new PanelVerPerfil();
+        panelVerPerfil.setBounds(this.getBounds());
+        this.removeAll();
+        this.add(panelVerPerfil);
+        this.updateUI();
+    }//GEN-LAST:event_btnVerPerfilActionPerformed
+
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+        panelCompras = new PanelCompras2();
+        panelCompras.setBounds(this.getBounds());
+        this.removeAll();
+        this.add(panelCompras);
+        this.updateUI();
+    }//GEN-LAST:event_btnComprarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

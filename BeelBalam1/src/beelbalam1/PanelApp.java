@@ -107,7 +107,7 @@ public class PanelApp extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnVerPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPerfilActionPerformed
-<<<<<<< HEAD
+
         panelVerPerfil = new PanelVerPerfil();
         panelVerPerfil.setBounds(this.getBounds());
         this.removeAll();
@@ -123,11 +123,9 @@ public class PanelApp extends javax.swing.JPanel {
         this.updateUI();
     }//GEN-LAST:event_btnComprarActionPerformed
 
-=======
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerPerfilActionPerformed
+    }                                            
 
->>>>>>> d802a8e45e6c214c8d0d5f5b9b34af9ab27dae7e
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;

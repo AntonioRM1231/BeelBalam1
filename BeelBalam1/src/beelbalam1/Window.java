@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class Window extends javax.swing.JPanel {
 
+    ProcEditarUsuario editU;
     /**
      * Creates new form Window
      */
@@ -281,6 +282,8 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        //AQUI OBTIENE EL NOMBRE ANTES DE MODIFICAR 
+        editU.setNombreEU(txtDNombreUsuario.getText());
         this.btnSaveChanges.setVisible(true);
         this.txtDNombreUsuario.setEditable(true);
         this.txtDCorreoE.setEditable(true);
@@ -289,11 +292,40 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+        /*A*/
+        
         this.btnSaveChanges.setVisible(false);
         this.txtDNombreUsuario.setEditable(false);
         this.txtDCorreoE.setEditable(false);
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
+        
+        
+        editU= new ProcEditarUsuario();
+        boolean v = false; 
+        if((txtDNombreUsuario.getText().length()>25)||
+                (txtDCorreoE.getText().length()>35)||
+                (txtDNumCel.getText().length()>14)||
+                (txtDNumTarjeta.getText().length()>17)){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
+            txtDNombreUsuario.setText(" ");
+            txtDCorreoE.setText(" ");
+            txtDNumCel.setText(" ");
+            txtDNumTarjeta.setText(" ");
+            v = true;
+        }
+        if(!v){
+            editU.setNewNombreEU(txtDNombreUsuario.getText());
+            editU.setNewCorreoEU(txtDCorreoE.getText());
+            editU.setNewCelEU(txtDNumCel.getText());
+            editU.setNewNumTarjetaEU(txtDNumTarjeta.getText());
+            
+            //NOTAAAA: FALTA HACER MAS SET ANTES DE PODER LLAMAR CORRECTAMENTE AL 
+            //PROC ALMACENADO DE EDITAR 
+            editU.hacerConexionEditUsuario();          
+        }
+        
+        /*
         
         String u_nombre;
         String u_correo;
@@ -306,7 +338,7 @@ public class Window extends javax.swing.JPanel {
         u_correo = this.txtDCorreoE.getText();
         u_numCel = this.txtDNumCel.getText();
         u_tarjeta = this.txtDNumTarjeta.getText();
-
+        
         if((u_nombre.length()>25)||(u_correo.length()>35)||(u_numCel.length()>14)||(u_tarjeta.length()>17)){
             JOptionPane.showMessageDialog(null, "Error! Datos ingresados incorrectos");
             this.txtDNombreUsuario.setText(" ");
@@ -318,7 +350,7 @@ public class Window extends javax.swing.JPanel {
         
         if(!v){
             //JOptionPane.showMessageDialog(null, "Datos guardados");
-        }
+        }*/
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

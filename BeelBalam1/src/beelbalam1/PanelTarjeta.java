@@ -15,6 +15,9 @@ public class PanelTarjeta extends javax.swing.JPanel {
      * Creates new form PanelTarjeta
      */
     Window PanelWindow;
+    
+    PanelRegistro panelReg;
+    
     public PanelTarjeta() {
         initComponents();
     }
@@ -157,6 +160,11 @@ public class PanelTarjeta extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApPaternoTarjetaActionPerformed
 
     private void btnConfTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfTarjetaActionPerformed
+        //PARA OBTENER LOS DATOS DEL PanelRegistro
+        //panelReg
+
+
+
         //Verificar que se haya podido generar usuario
         PanelWindow = new Window();
         PanelWindow.setBounds(this.getBounds());

@@ -132,9 +132,9 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField txtContrasenia;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombreUsuario;
-    private javax.swing.JTextField txtNumCelular;
+    public javax.swing.JPasswordField txtContrasenia;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtNombreUsuario;
+    public javax.swing.JTextField txtNumCelular;
     // End of variables declaration//GEN-END:variables
 }

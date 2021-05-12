@@ -117,6 +117,11 @@ public class PanelRegistro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTarjetaActionPerformed
+        //PARA RECUPERAR LOS DATOS DEL NUEVO USUARIO
+        
+        
+
+        //PARA IR AL PANEL DE TARJETA 
         panelTarjeta = new PanelTarjeta();
         panelTarjeta.setBounds(this.getBounds());
         this.removeAll();

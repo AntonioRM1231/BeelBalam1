@@ -16,6 +16,9 @@ public class PanelRegistro extends javax.swing.JPanel {
      * Creates new form PanelRegistro
      */
     PanelTarjeta panelTarjeta;
+    
+    ProcCrearUsuario paCrearUsuario;
+    
     public PanelRegistro() {
         initComponents();
     }
@@ -118,7 +121,17 @@ public class PanelRegistro extends javax.swing.JPanel {
 
     private void btnAgregarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTarjetaActionPerformed
         //PARA RECUPERAR LOS DATOS DEL NUEVO USUARIO
+        if((txtNombreUsuario.getText().length()>25)||
+                (txtCorreo.getText().length()>35)||
+                (txtNumCelular.getText().length()>14)||
+                (txtContrasenia.getText().length()>17)){
+            
+        }
         
+        paCrearUsuario.setNombreU(txtNombreUsuario.getText());
+        paCrearUsuario.setContraseniaU(txtContrasenia.getText());
+        paCrearUsuario.setNumCelularU(txtNumCelular.getText());
+        paCrearUsuario.setCorreoU(txtCorreo.getText());
         
 
         //PARA IR AL PANEL DE TARJETA 

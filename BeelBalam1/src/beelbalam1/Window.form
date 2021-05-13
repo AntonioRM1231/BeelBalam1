@@ -33,6 +33,90 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel5">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Aviso Privacidad">
+                <Property name="tabTitle" type="java.lang.String" value="Aviso Privacidad"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnAcuerdo" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" pref="300" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane3" min="-2" pref="558" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel9" min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnAcuerdo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="162" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tw Cen MT" size="36" style="2"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Aviso de privacidad"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="El tratamiento de datos personales se realiza de conformidad con lo dispuesto en los art&#xed;culos 8 de la Ley &#xa;Org&#xe1;nica de la Administraci&#xf3;n P&#xfa;blica Federal, (&#xfa;ltima reforma publicada en el Diario Oficial de la Federaci&#xf3;n, &#xa;el diecinueve de mayo de dos mil diecisiete), 28, fracci&#xf3;n III, del Reglamento de la Oficina de la Presidencia de&#xa;la Rep&#xfa;blica (publicado en Diario Oficial de la Federaci&#xf3;n el nueve de diciembre de dos mil diecinueve), 117,&#xa;fracci&#xf3;n V de la Ley Federal de Transparencia y Acceso a la Informaci&#xf3;n P&#xfa;blica (&#xfa;ltima reforma publicada en &#xa;el Diario Oficial de la Federaci&#xf3;n el veintisiete de enero de dos mil diecisiete), 22, fracci&#xf3;n II, 24, 28, 66, fracci&#xf3;n&#xa;I, 69 y 70, fracci&#xf3;n II de la Ley General de Protecci&#xf3;n de Datos Personales en Posesi&#xf3;n de Sujetos Obligados.&#xa;&#xa;Los datos personales que usted proporcione podr&#xe1;n ser susceptibles, en su caso, de ser transferidos al responsa&#xa;ble competente, en t&#xe9;rminos del numeral 13, fracci&#xf3;n V, del Reglamento de la Oficina de la Presidencia de la Re&#xa;p&#xfa;blica, (&#xfa;ltima reforma publicada el uno de octubre de dos mil quince), en concordancia con el diverso 117,&#xa; fracci&#xf3;n V de la Ley Federal de Transparencia y Acceso a la Informaci&#xf3;n P&#xfa;blica (&#xfa;ltima reforma publicada en&#xa; el Diario Oficial de la Federaci&#xf3;n el veintisiete de enero de dos mil diecisiete)."/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnAcuerdo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estoy de acuerdo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcuerdoActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

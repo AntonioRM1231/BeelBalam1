@@ -134,25 +134,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbEstIni">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="EnumS" type="code"/>
-        </Property>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbEstFin">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -212,17 +200,19 @@
     <Component class="javax.swing.JComboBox" name="cbTramo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="SELVA 1"/>
-            <StringItem index="1" value="SELVA 2"/>
-            <StringItem index="2" value="GOLFO 1"/>
-            <StringItem index="3" value="GOLFO 2"/>
-            <StringItem index="4" value="CARIBE 1"/>
-            <StringItem index="5" value="CARIBE 2"/>
+          <StringArray count="7">
+            <StringItem index="0" value="Seleccionar"/>
+            <StringItem index="1" value="SELVA 1"/>
+            <StringItem index="2" value="SELVA 2"/>
+            <StringItem index="3" value="GOLFO 1"/>
+            <StringItem index="4" value="GOLFO 2"/>
+            <StringItem index="5" value="CARIBE 1"/>
+            <StringItem index="6" value="CARIBE 2"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbTramoItemStateChanged"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTramoActionPerformed"/>
       </Events>
       <AuxValues>

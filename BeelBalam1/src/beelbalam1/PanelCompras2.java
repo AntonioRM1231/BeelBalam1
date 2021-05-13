@@ -5,6 +5,7 @@
  */
 package beelbalam1;
 
+import java.awt.event.ItemEvent;
 import javax.swing.*;
 
 /**
@@ -14,6 +15,7 @@ import javax.swing.*;
 public class PanelCompras2 extends javax.swing.JPanel {
 
     ComboBoxModel EnumS;
+    ComboBoxModel EnumF;
     
     public PanelCompras2() {
         initComponents();
@@ -48,9 +50,7 @@ public class PanelCompras2 extends javax.swing.JPanel {
 
         jLabel3.setText("ESTACIÓN FINAL:");
 
-        cbEstIni.setModel(EnumS);
-
-        cbEstFin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbEstFin.setToolTipText("");
 
         jLabel4.setText("NOMBRE PASAJERO:");
 
@@ -69,7 +69,12 @@ public class PanelCompras2 extends javax.swing.JPanel {
 
         btnRealizarCompra.setText("REALIZAR COMPRA");
 
-        cbTramo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELVA 1", "SELVA 2", "GOLFO 1", "GOLFO 2", "CARIBE 1", "CARIBE 2" }));
+        cbTramo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "SELVA 1", "SELVA 2", "GOLFO 1", "GOLFO 2", "CARIBE 1", "CARIBE 2" }));
+        cbTramo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbTramoItemStateChanged(evt);
+            }
+        });
         cbTramo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTramoActionPerformed(evt);
@@ -159,27 +164,46 @@ public class PanelCompras2 extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void cbLlenarV(String datos){
+        if(datos.equalsIgnoreCase("SELVA 1")){
+            this.EnumS = new DefaultComboBoxModel(TSelva1.values());
+            this.EnumF = new DefaultComboBoxModel(TSelva1.values());
+        }else if (datos.equalsIgnoreCase("SELVA 2")){
+            this.EnumS = new DefaultComboBoxModel(TSelva2.values());
+            this.EnumF = new DefaultComboBoxModel(TSelva2.values());
+        }else if(datos.equalsIgnoreCase("GOLFO 1")){
+            this.EnumS = new DefaultComboBoxModel(TGolfo1.values());
+            this.EnumF = new DefaultComboBoxModel(TGolfo1.values());
+        }else if(datos.equalsIgnoreCase("GOLFO 2")){
+            this.EnumS = new DefaultComboBoxModel(TGolfo2.values());
+            this.EnumF = new DefaultComboBoxModel(TGolfo2.values());
+        }else if(datos.equalsIgnoreCase("CARIBE 1")){
+            this.EnumS = new DefaultComboBoxModel(TCaribe1.values());
+            this.EnumF = new DefaultComboBoxModel(TCaribe1.values());
+        }else if(datos.equalsIgnoreCase("CARIBE 2")){
+            this.EnumS = new DefaultComboBoxModel(TCaribe2.values());
+            this.EnumF = new DefaultComboBoxModel(TCaribe2.values());
+        }
+    }
+    
     
     private void cbNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNacionalidadActionPerformed
         
     }//GEN-LAST:event_cbNacionalidadActionPerformed
     
     private void cbTramoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTramoActionPerformed
-       if(cbTramo.getSelectedItem().equals("SELVA 1")){
-           EnumS = new DefaultComboBoxModel(TSelva1.values());
-       }else if(cbTramo.getSelectedItem().equals("SELVA 2")){
-           EnumS = new DefaultComboBoxModel(TSelva2.values());
-       }else if(cbTramo.getSelectedItem().equals("GOLFO 1")){
-           EnumS = new DefaultComboBoxModel(TGolfo1.values());
-       }else if(cbTramo.getSelectedItem().equals("GOLFO 2")){
-           EnumS = new DefaultComboBoxModel(TGolfo2.values());
-       }else if(cbTramo.getSelectedItem().equals("CARIBE 1")){
-           EnumS = new DefaultComboBoxModel(TCaribe1.values());
-       }else if(cbTramo.getSelectedItem().equals("CARIBE 2")){
-           EnumS = new DefaultComboBoxModel(TCaribe2.values());
-       }
+      
     }//GEN-LAST:event_cbTramoActionPerformed
+
+    private void cbTramoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTramoItemStateChanged
+        if(evt.getStateChange()==ItemEvent.SELECTED){
+            if(this.cbTramo.getSelectedIndex()>0){
+                cbLlenarV(this.cbTramo.getSelectedItem().toString());
+                this.cbEstIni.setModel(this.EnumS);
+                this.cbEstFin.setModel(this.EnumF);
+            }
+        }
+    }//GEN-LAST:event_cbTramoItemStateChanged
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

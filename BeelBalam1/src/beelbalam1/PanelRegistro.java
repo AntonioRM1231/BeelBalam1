@@ -19,12 +19,13 @@ public class PanelRegistro extends javax.swing.JPanel {
      */
     PanelTarjeta panelTarjeta;
     //PARA ALMACENAR LOS DATOS DEL NUEVO USUARIO 
-    ProcCrearUsuario paCrearUsuario;
+    public ProcCrearUsuario paCrearUsuario = new ProcCrearUsuario();  
     
     public PanelRegistro() {
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,17 +124,23 @@ public class PanelRegistro extends javax.swing.JPanel {
 
     private void btnAgregarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTarjetaActionPerformed
         //PARA RECUPERAR LOS DATOS DEL NUEVO USUARIO
+        boolean test = false;
         if((txtNombreUsuario.getText().length()>25)||
+                txtNombreUsuario.getText().isEmpty()||
                 (txtCorreo.getText().length()>35)||
+                (txtCorreo.getText().isEmpty())||
                 (txtNumCelular.getText().length()>14)||
-                (txtContrasenia.getText().length()>17)){
-            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
+                (txtNumCelular.getText().isEmpty())||
+                (txtContrasenia.getText().length()>17)||
+                (txtContrasenia.getText().isEmpty())){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo o vacio)");
             txtNombreUsuario.setText(" ");
             txtCorreo.setText(" ");
             txtNumCelular.setText(" ");
             txtContrasenia.setText(" ");
+            test = true;
         }
-        else{
+        if(test == false){
             paCrearUsuario.setNombreU(txtNombreUsuario.getText());
             paCrearUsuario.setContraseniaU(txtContrasenia.getText());
             paCrearUsuario.setNumCelularU(txtNumCelular.getText());

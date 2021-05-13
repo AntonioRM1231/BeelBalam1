@@ -10,6 +10,7 @@ import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.sql.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,15 +19,17 @@ import java.util.*;
 public class PantallaInicio3 extends javax.swing.JFrame {
     
     PanelRegistro panelReg;
-    PanelCompras2 panelComp;
     Window panelWindow;
     
+    
+    Connection conex;
+    CallableStatement stm;
+    ResultSet rs;
     /**
      * Creates new form PantallaInicio3
      */
     public PantallaInicio3() {
         initComponents();
-        //this.btnRegresar.setVisible(false);
     }
 
     /**
@@ -162,36 +165,37 @@ public class PantallaInicio3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSActionPerformed
-        panelWindow = new Window();
-        panelWindow.setBounds(panelInic.getBounds());
-        panelInic.removeAll();
-        panelInic.add(panelWindow);
-        panelInic.updateUI();
-        
-        String user = "pollito";
-        String nombre,contra,correo,numero,tarjeta;
-        int ptos;
+        String nombre = null;
+        String contra = null;
         
         try {
-            Connection conex;
-            Statement stm;
-            ResultSet rs;
+            //Conecta
             conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
-            String consulta = "SELECT *FROM USUARIO WHERE NOMBRE_U= 'pollito'";
-            stm = conex.createStatement();
-            rs = stm.executeQuery(consulta);
-            while(rs.next()){
-                nombre = rs.getString(1);
-                contra = rs.getString(2);
-                correo = rs.getString(3);
-                numero = rs.getString(4);
-                ptos = rs.getInt(5);
-                tarjeta = rs.getString(6);
-                System.out.println("(c)"+"/"+nombre+"/"+contra+"/"+correo+"/"+numero+"/"+ptos+"/"+tarjeta);
+            //Busca el usuario
+            stm = conex.prepareCall("{call VALIDAR_INICIOSESION(?)}");
+            stm.setString(1, this.txtUsuario.getText());
+            rs = stm.executeQuery();
+            if(rs.next()){ //si encuentra el usuario, verifica que la contraseña sea correcta
+                contra = rs.getString(1);
+                System.out.println(contra);
+                if(contra.equals(this.txtContra.getText())){
+                    //System.out.println("Exito!");
+                    //Cambio de panel
+                    panelWindow = new Window();
+                    panelWindow.setUser(this.txtUsuario.getText());
+                    panelWindow.setBounds(panelInic.getBounds());
+                    panelInic.removeAll();
+                    panelInic.add(panelWindow);
+                    panelInic.updateUI();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta! Intente de nuevo");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado");
             }
             rs.close();
             stm.close();
-            //System.out.println(rs.getString(1) + "/" + rs.getString(2) + "/" + rs.getString(3));
             
         } catch (SQLException ex) {
             System.out.println("ERROR");

@@ -5,6 +5,7 @@
  */
 package beelbalam1;
 
+import java.awt.event.ItemEvent;
 import javax.swing.*;
 
 
@@ -15,10 +16,12 @@ import javax.swing.*;
 public class Window extends javax.swing.JPanel {
 
     ProcEditarUsuario editU;
+    ComboBoxModel EnumSt;
+    ComboBoxModel EnumFi;
     /**
      * Creates new form Window
      */
-    PanelCompras2 pc2;
+    //PanelCompras2 pc2;
     
     public Window() {
         initComponents();
@@ -28,8 +31,6 @@ public class Window extends javax.swing.JPanel {
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
         this.txtDPtosAcum.setEditable(false);
-        ComboBoxModel EnumSt;
-        ComboBoxModel EnumFi;
     }
 
     /**
@@ -68,9 +69,9 @@ public class Window extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbTramo = new javax.swing.JComboBox<>();
+        cbEstIni = new javax.swing.JComboBox<>();
+        cbEstFin = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -215,10 +216,15 @@ public class Window extends javax.swing.JPanel {
 
         jLabel17.setText("NACIONALIDAD:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "SELVA 1", "SELVA 2", "GOLFO 1", "GOLFO 2", "CARIBE 1", "CARIBE 2" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbTramo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "SELVA 1", "SELVA 2", "GOLFO 1", "GOLFO 2", "CARIBE 1", "CARIBE 2" }));
+        cbTramo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbTramoItemStateChanged(evt);
+            }
+        });
+        cbTramo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbTramoActionPerformed(evt);
             }
         });
 
@@ -262,30 +268,29 @@ public class Window extends javax.swing.JPanel {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(135, 135, 135)
-                                    .addComponent(jButton1))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel10))
-                                    .addGap(15, 15, 15)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(106, 106, 106)
-                                            .addComponent(jLabel11)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(40, 40, 40)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbTramo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(cbEstIni, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(106, 106, 106)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cbEstFin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -299,13 +304,13 @@ public class Window extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbTramo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbEstIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbEstFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -425,7 +430,27 @@ public class Window extends javax.swing.JPanel {
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void cbLlenarV(String datos){
+        if(datos.equalsIgnoreCase("SELVA 1")){
+            this.EnumSt = new DefaultComboBoxModel(TSelva1.values());
+            this.EnumFi = new DefaultComboBoxModel(TSelva1.values());
+        }else if (datos.equalsIgnoreCase("SELVA 2")){
+            this.EnumSt = new DefaultComboBoxModel(TSelva2.values());
+            this.EnumFi = new DefaultComboBoxModel(TSelva2.values());
+        }else if(datos.equalsIgnoreCase("GOLFO 1")){
+            this.EnumSt = new DefaultComboBoxModel(TGolfo1.values());
+            this.EnumFi = new DefaultComboBoxModel(TGolfo1.values());
+        }else if(datos.equalsIgnoreCase("GOLFO 2")){
+            this.EnumSt = new DefaultComboBoxModel(TGolfo2.values());
+            this.EnumFi = new DefaultComboBoxModel(TGolfo2.values());
+        }else if(datos.equalsIgnoreCase("CARIBE 1")){
+            this.EnumSt = new DefaultComboBoxModel(TCaribe1.values());
+            this.EnumFi = new DefaultComboBoxModel(TCaribe1.values());
+        }else if(datos.equalsIgnoreCase("CARIBE 2")){
+            this.EnumSt = new DefaultComboBoxModel(TCaribe2.values());
+            this.EnumFi = new DefaultComboBoxModel(TCaribe2.values());
+        }
+    }
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
@@ -503,11 +528,7 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pc2 = new PanelCompras2();
-        pc2.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(pc2);
-        this.updateUI();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtDNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNombreUsuarioActionPerformed
@@ -522,19 +543,29 @@ public class Window extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbTramoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTramoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbTramoActionPerformed
+
+    private void cbTramoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTramoItemStateChanged
+        if(evt.getStateChange()==ItemEvent.SELECTED){
+            if(this.cbTramo.getSelectedIndex()>0){
+                cbLlenarV(this.cbTramo.getSelectedItem().toString());
+                this.cbEstIni.setModel(this.EnumSt);
+                this.cbEstFin.setModel(this.EnumFi);
+            }
+        }
+    }//GEN-LAST:event_cbTramoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSaveChanges;
+    private javax.swing.JComboBox<String> cbEstFin;
+    private javax.swing.JComboBox<String> cbEstIni;
+    private javax.swing.JComboBox<String> cbTramo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

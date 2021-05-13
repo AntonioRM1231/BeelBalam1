@@ -12,7 +12,7 @@ package beelbalam1;
 public class PantallaInicio3 extends javax.swing.JFrame {
     
     PanelRegistro panelReg;
-    PanelCompras2 panelComp;
+    //PanelCompras2 panelComp;
     //PanelApp panelApp;
     Window panelWindow;
     /**

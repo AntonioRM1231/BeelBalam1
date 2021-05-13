@@ -5,6 +5,12 @@
  */
 package beelbalam1;
 
+import java.lang.*;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import java.sql.*;
+import java.util.*;
+
 /**
  *
  * @author Anahi SC
@@ -13,8 +19,8 @@ public class PantallaInicio3 extends javax.swing.JFrame {
     
     PanelRegistro panelReg;
     PanelCompras2 panelComp;
-    //PanelApp panelApp;
     Window panelWindow;
+    
     /**
      * Creates new form PantallaInicio3
      */
@@ -161,6 +167,36 @@ public class PantallaInicio3 extends javax.swing.JFrame {
         panelInic.removeAll();
         panelInic.add(panelWindow);
         panelInic.updateUI();
+        
+        String user = "pollito";
+        String nombre,contra,correo,numero,tarjeta;
+        int ptos;
+        
+        try {
+            Connection conex;
+            Statement stm;
+            ResultSet rs;
+            conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
+            String consulta = "SELECT *FROM USUARIO WHERE NOMBRE_U= 'pollito'";
+            stm = conex.createStatement();
+            rs = stm.executeQuery(consulta);
+            while(rs.next()){
+                nombre = rs.getString(1);
+                contra = rs.getString(2);
+                correo = rs.getString(3);
+                numero = rs.getString(4);
+                ptos = rs.getInt(5);
+                tarjeta = rs.getString(6);
+                System.out.println("(c)"+"/"+nombre+"/"+contra+"/"+correo+"/"+numero+"/"+ptos+"/"+tarjeta);
+            }
+            rs.close();
+            stm.close();
+            //System.out.println(rs.getString(1) + "/" + rs.getString(2) + "/" + rs.getString(3));
+            
+        } catch (SQLException ex) {
+            System.out.println("ERROR");
+        }
+        
     }//GEN-LAST:event_btnIniciarSActionPerformed
 
     private void btnRegistrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrateActionPerformed

@@ -17,17 +17,22 @@ public class BeelBalam1 {
     /**
      * @param args the command line arguments
      */
-
-    public static void main(String[] args) {
-        try {
-            Connection c = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433", "sa", "2020640576");
+    public Connection c;
+    public Connection Conexion(){
+       try {
+            c = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433", "sa", "2020640576");
             System.out.println("Conectado con exito");
         }
         // Handle any errors that may have occurred.
         catch (SQLException e) {
             System.out.println("Error :c");
             e.printStackTrace();
-        }
+        } 
+       
+        return c;
+    }
+    public static void main(String[] args) {
+       
     }
     
 }

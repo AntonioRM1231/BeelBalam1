@@ -5,6 +5,8 @@
  */
 package beelbalam1;
 
+import java.beans.Statement;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 
@@ -18,7 +20,9 @@ public class Window extends javax.swing.JPanel {
     /**
      * Creates new form Window
      */
-    PanelCompras2 pc2;
+    PanelCompras2 pc2;//temporal
+    
+    //Connection c = bb.c;//obtenemos la conexion
     
     public Window() {
         initComponents();
@@ -28,6 +32,9 @@ public class Window extends javax.swing.JPanel {
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
         this.txtDPtosAcum.setEditable(false);
+        this.txtDPassword.setText("**************");
+        this.txtDPassword.setEditable(false);
+        
     }
 
     /**
@@ -54,6 +61,8 @@ public class Window extends javax.swing.JPanel {
         txtDNumCel = new javax.swing.JTextField();
         txtDPtosAcum = new javax.swing.JTextField();
         txtDNumTarjeta = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtDPassword = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -99,34 +108,52 @@ public class Window extends javax.swing.JPanel {
             }
         });
 
+        txtDNumTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDNumTarjetaActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Contraseña");
+
+        txtDPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSaveChanges, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtDCorreoE)
                                     .addComponent(txtDNombreUsuario)
                                     .addComponent(txtDNumCel)
                                     .addComponent(txtDPtosAcum)
-                                    .addComponent(txtDNumTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))))
+                                    .addComponent(txtDNumTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                    .addComponent(txtDPassword)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(btnSaveChanges)))))
                 .addGap(200, 200, 200))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,11 +181,15 @@ public class Window extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(txtDNumTarjeta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEdit)
-                .addGap(30, 30, 30)
-                .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtDPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEdit)
+                    .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(96, 96, 96))
         );
 
         jTabbedPane1.addTab("Ver Perfil", jPanel1);
@@ -186,7 +217,7 @@ public class Window extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addComponent(jButton1)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comprar Boleto", jPanel2);
@@ -258,7 +289,7 @@ public class Window extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cerrar Sesion", jPanel4);
@@ -282,74 +313,43 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        //AQUI OBTIENE EL NOMBRE ANTES DE MODIFICAR 
-        editU.setNombreEU(txtDNombreUsuario.getText());
+        //APAREZCAN LOS DATOS(jalan de la base)
+        //editU.setNombreEU(txtDNombreUsuario.getText());
         this.btnSaveChanges.setVisible(true);
         this.txtDNombreUsuario.setEditable(true);
         this.txtDCorreoE.setEditable(true);
         this.txtDNumCel.setEditable(true);
         this.txtDNumTarjeta.setEditable(true);
+        this.txtDPassword.setEditable(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
-        /*A*/
-        
         this.btnSaveChanges.setVisible(false);
         this.txtDNombreUsuario.setEditable(false);
         this.txtDCorreoE.setEditable(false);
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
+        this.txtDPassword.setText("**************");
+        this.txtDPassword.setEditable(false);
         
+        /*editU = new ProcEditarUsuario();
+        int v = 0;
         
-        editU= new ProcEditarUsuario();
-        boolean v = false; 
-        if((txtDNombreUsuario.getText().length()>25)||
-                (txtDCorreoE.getText().length()>35)||
-                (txtDNumCel.getText().length()>14)||
-                (txtDNumTarjeta.getText().length()>17)){
-            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
-            txtDNombreUsuario.setText(" ");
+        if((txtDNombreUsuario.getText().length()<=25) && (txtDNombreUsuario.getText().length()>0))v++;
+        if((txtDCorreoE.getText().length()<=35) && (txtDCorreoE.getText().length()>0))v++;
+        if((txtDNumCel.getText().length()<=14) && (txtDNumCel.getText().length()>0))v++;
+        if((txtDNumTarjeta.getText().length()<=17) && (txtDNumTarjeta.getText().length()>0))v++;
+        if((txtDPassword.getText().length()<=20) && (txtDPassword.getText().length()>0))v++;
+        
+        System.out.println("v " + v);
+        if(v != 5){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo o vacíos)");
+            txtDNombreUsuario.setText(" "); 
             txtDCorreoE.setText(" ");
             txtDNumCel.setText(" ");
             txtDNumTarjeta.setText(" ");
-            v = true;
-        }
-        if(!v){
-            editU.setNewNombreEU(txtDNombreUsuario.getText());
-            editU.setNewCorreoEU(txtDCorreoE.getText());
-            editU.setNewCelEU(txtDNumCel.getText());
-            editU.setNewNumTarjetaEU(txtDNumTarjeta.getText());
-            
-            //NOTAAAA: FALTA HACER MAS SET ANTES DE PODER LLAMAR CORRECTAMENTE AL 
-            //PROC ALMACENADO DE EDITAR 
-            editU.hacerConexionEditUsuario();          
-        }
-        
-        /*
-        
-        String u_nombre;
-        String u_correo;
-        String u_numCel;
-        String u_tarjeta;
-        
-        boolean v = false;
-        
-        u_nombre = this.txtDNombreUsuario.getText();
-        u_correo = this.txtDCorreoE.getText();
-        u_numCel = this.txtDNumCel.getText();
-        u_tarjeta = this.txtDNumTarjeta.getText();
-        
-        if((u_nombre.length()>25)||(u_correo.length()>35)||(u_numCel.length()>14)||(u_tarjeta.length()>17)){
-            JOptionPane.showMessageDialog(null, "Error! Datos ingresados incorrectos");
-            this.txtDNombreUsuario.setText(" ");
-            this.txtDCorreoE.setText(" ");
-            this.txtDNumCel.setText(" ");
-            this.txtDNumTarjeta.setText(" ");
-            v = true;
-        } 
-        
-        if(!v){
-            //JOptionPane.showMessageDialog(null, "Datos guardados");
+        }else{
+           JOptionPane.showMessageDialog(null, "Exito! Datos almacenados"); 
         }*/
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
@@ -365,7 +365,22 @@ public class Window extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDNombreUsuarioActionPerformed
 
+    private void txtDPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDPasswordActionPerformed
 
+    private void txtDNumTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNumTarjetaActionPerformed
+        /*String numeroT = JOptionPane.showInputDialog("Inserte el numero de tarjeta");
+        int cvc  = Integer.parseInt(JOptionPane.showInputDialog("Inserte el cvc ### "));
+        String primerN = JOptionPane.showInputDialog("Inserte el primer nombre del propietario");
+        String segundoN = JOptionPane.showInputDialog("Inserte el segundo nombre del propietario");
+        String primerA = JOptionPane.showInputDialog("Inserte el primer apellido del propietario");
+        String segundoA = JOptionPane.showInputDialog("Inserte el segundo apellido del propietario");
+        int fecha = Integer.parseInt(JOptionPane.showInputDialog("Inserte la fecha de expiracion MMAA"));
+        */
+    }//GEN-LAST:event_txtDNumTarjetaActionPerformed
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEdit;
@@ -377,6 +392,7 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -389,6 +405,7 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTextField txtDNombreUsuario;
     private javax.swing.JTextField txtDNumCel;
     private javax.swing.JTextField txtDNumTarjeta;
+    private javax.swing.JTextField txtDPassword;
     private javax.swing.JTextField txtDPtosAcum;
     // End of variables declaration//GEN-END:variables
 }

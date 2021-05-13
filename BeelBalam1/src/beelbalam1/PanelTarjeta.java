@@ -192,6 +192,7 @@ public class PanelTarjeta extends javax.swing.JPanel {
             paCrearUsuario.setFechaT(Integer.parseInt(txtMesTarjeta.getText().concat(txtAnioTarjeta.getText())));
             paCrearUsuario.setCvcT(Integer.parseInt(txtCVCTarjeta.getText()));
             
+            paCrearUsuario.hacerConexion();
             //Verificar que se haya podido generar usuario
             PanelWindow = new Window();
             PanelWindow.setBounds(this.getBounds());

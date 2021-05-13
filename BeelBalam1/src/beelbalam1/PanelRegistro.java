@@ -6,6 +6,8 @@
  */
 package beelbalam1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Anahi SC
@@ -16,10 +18,14 @@ public class PanelRegistro extends javax.swing.JPanel {
      * Creates new form PanelRegistro
      */
     PanelTarjeta panelTarjeta;
+    //PARA ALMACENAR LOS DATOS DEL NUEVO USUARIO 
+    public ProcCrearUsuario paCrearUsuario = new ProcCrearUsuario();  
+    
     public PanelRegistro() {
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,11 +123,37 @@ public class PanelRegistro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTarjetaActionPerformed
-        panelTarjeta = new PanelTarjeta();
-        panelTarjeta.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(panelTarjeta);
-        this.updateUI();
+        //PARA RECUPERAR LOS DATOS DEL NUEVO USUARIO
+        boolean test = false;
+        if((txtNombreUsuario.getText().length()>25)||
+                txtNombreUsuario.getText().isEmpty()||
+                (txtCorreo.getText().length()>35)||
+                (txtCorreo.getText().isEmpty())||
+                (txtNumCelular.getText().length()>14)||
+                (txtNumCelular.getText().isEmpty())||
+                (txtContrasenia.getText().length()>17)||
+                (txtContrasenia.getText().isEmpty())){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo o vacio)");
+            txtNombreUsuario.setText(" ");
+            txtCorreo.setText(" ");
+            txtNumCelular.setText(" ");
+            txtContrasenia.setText(" ");
+            test = true;
+        }
+        if(test == false){
+            paCrearUsuario.setNombreU(txtNombreUsuario.getText());
+            paCrearUsuario.setContraseniaU(txtContrasenia.getText());
+            paCrearUsuario.setNumCelularU(txtNumCelular.getText());
+            paCrearUsuario.setCorreoU(txtCorreo.getText());
+            
+
+            //PARA IR AL PANEL DE TARJETA 
+            panelTarjeta = new PanelTarjeta();
+            panelTarjeta.setBounds(this.getBounds());
+            this.removeAll();
+            this.add(panelTarjeta);
+            this.updateUI();
+        }        
     }//GEN-LAST:event_btnAgregarTarjetaActionPerformed
 
 
@@ -132,9 +164,9 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField txtContrasenia;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombreUsuario;
-    private javax.swing.JTextField txtNumCelular;
+    public javax.swing.JPasswordField txtContrasenia;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtNombreUsuario;
+    public javax.swing.JTextField txtNumCelular;
     // End of variables declaration//GEN-END:variables
 }

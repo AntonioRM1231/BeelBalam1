@@ -128,22 +128,22 @@ public class ProcCrearUsuario {
     }
     
     public void hacerConexion(){
-        try {
-            Connection miConexion = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433", "sa", "2020640576");
+        try {                                               //DESKTOP-KT6L84G
+            Connection miConexion = DriverManager.getConnection("jdbc:sqlserver://LAPTOP-8M3QSOFP\\SQLEXPRESS:1433","sa", "llatitabebe");//2020640576
             CallableStatement resConexion;
             resConexion = miConexion.prepareCall("{call CREAR_USUARIO(?,?,?,?,?,?,?,?,?,?,?,?)}");
-            resConexion.setString(1,getNombreU());
-            resConexion.setString(2,getContraseniaU());
-            resConexion.setString(3,getCorreoU());
-            resConexion.setString(4,getNumCelularU());
-            resConexion.setInt(5,getPtosAcum());
-            resConexion.setInt(6,getCvcT());
-            resConexion.setString(7,getNombreT());
-            resConexion.setString(8,getSegNombreT());
-            resConexion.setString(9,getPrimerApT());
-            resConexion.setString(10,getSegApT());
-            resConexion.setInt(11,getFechaT());
-            resConexion.setString(12,getNumeroT());
+            resConexion.setString(1,this.getNombreU());
+            resConexion.setString(2,this.getContraseniaU());
+            resConexion.setString(3,this.getCorreoU());
+            resConexion.setString(4,this.getNumCelularU());
+            resConexion.setInt(5,this.getPtosAcum());
+            resConexion.setInt(6,this.getCvcT());
+            resConexion.setString(7,this.getNombreT());
+            resConexion.setString(8,this.getSegNombreT());
+            resConexion.setString(9,this.getPrimerApT());
+            resConexion.setString(10,this.getSegApT());
+            resConexion.setInt(11,this.getFechaT());
+            resConexion.setString(12,this.getNumeroT());
             JOptionPane.showMessageDialog(null, "Se ha agreago correctamente al usuario");
         } catch (Exception e) {
             System.out.println("Ha habido un error al crear al usuario");

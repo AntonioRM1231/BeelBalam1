@@ -5,6 +5,8 @@
  */
 package beelbalam1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Anahi SC
@@ -15,8 +17,12 @@ public class PanelTarjeta extends javax.swing.JPanel {
      * Creates new form PanelTarjeta
      */
     Window PanelWindow;
+    //PARA ALMACENAR LOS DATOS (DE TARJETA) DEL NUEVO USUARIO 
+    //ProcCrearUsuario paCrearUsuario;
+    PanelRegistro panReg = new PanelRegistro();
     public PanelTarjeta() {
         initComponents();
+        
     }
 
     /**
@@ -157,12 +163,64 @@ public class PanelTarjeta extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApPaternoTarjetaActionPerformed
 
     private void btnConfTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfTarjetaActionPerformed
-        //Verificar que se haya podido generar usuario
-        PanelWindow = new Window();
-        PanelWindow.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(PanelWindow);
-        this.updateUI();
+        //PARA OBTENER LOS DATOS DEL Panel DE TARJETA 
+        if(txtNumTarjeta.getText().length()>17||
+                txtNumTarjeta.getText().isEmpty()||
+                txtNombreRepTarjeta.getText().length()>30||
+                txtNombreRepTarjeta.getText().isEmpty()||
+                txtApPaternoTarjeta.getText().length()>15||
+                txtApPaternoTarjeta.getText().isEmpty()||
+                txtApMaternoNumTarjeta.getText().length()>15||
+                txtApMaternoNumTarjeta.getText().isEmpty()||
+                txtMesTarjeta.getText().length()>3||
+                txtMesTarjeta.getText().isEmpty()||
+                txtAnioTarjeta.getText().length()>3||
+                txtAnioTarjeta.getText().isEmpty()||
+                txtCVCTarjeta.getText().length()>4||
+                txtCVCTarjeta.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo o vacio)");
+            txtNumTarjeta.setText(" ");
+            txtNombreRepTarjeta.setText(" ");
+            txtApPaternoTarjeta.setText(" ");
+            txtApMaternoNumTarjeta.setText(" ");
+            txtMesTarjeta.setText(" ");
+            txtAnioTarjeta.setText(" ");
+            txtCVCTarjeta.setText(" ");
+        }else{
+            //LLAMAMOS AL PROC ALMACENADO PARA QUE CREE USUARIO 
+            panReg.paCrearUsuario.setNumeroT(txtNumTarjeta.getText());
+            //de esta linea se tiene que "partir en dos" para obtener el segundo nombre
+            //si es que hay ;-;
+            String nombreRecibido = txtNombreRepTarjeta.getText();
+            
+            String[] nombres = nombreRecibido.split("\\s+");
+            if(nombres.length == 1){
+                panReg.paCrearUsuario.setNombreT(txtNombreRepTarjeta.getText());
+                panReg.paCrearUsuario.setSegNombreT(" ");
+                System.out.println("Solo un nombre: "+nombres[0]);
+            }else if(nombres.length == 2){
+                panReg.paCrearUsuario.setNombreT(nombres[0]);
+                panReg.paCrearUsuario.setSegNombreT(nombres[1]);
+                System.out.println("Primer nombre: "+nombres[0]);
+                System.out.println("Segundo nombre: "+nombres[1]);
+            }
+            //paCrearUsuario.setSegNombreT();//pendiente de resolver
+            panReg.paCrearUsuario.setPrimerApT(txtApPaternoTarjeta.getText());
+            panReg.paCrearUsuario.setSegApT(txtApMaternoNumTarjeta.getText());
+            panReg.paCrearUsuario.setFechaT(Integer.parseInt(txtMesTarjeta.getText().concat(txtAnioTarjeta.getText())));
+            panReg.paCrearUsuario.setCvcT(Integer.parseInt(txtCVCTarjeta.getText()));
+            panReg.paCrearUsuario.setPtosAcum(0);
+            panReg.paCrearUsuario.hacerConexion();
+            //Verificar que se haya podido generar usuario
+            PanelWindow = new Window();
+            PanelWindow.setBounds(this.getBounds());
+            this.removeAll();
+            this.add(PanelWindow);
+            this.updateUI();
+        }
+
+
+        
     }//GEN-LAST:event_btnConfTarjetaActionPerformed
 
 

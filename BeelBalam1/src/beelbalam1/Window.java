@@ -5,19 +5,29 @@
  */
 package beelbalam1;
 
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Itzel Cabrera
  */
 public class Window extends javax.swing.JPanel {
 
+    ProcEditarUsuario editU;
     /**
      * Creates new form Window
      */
     PanelCompras2 pc2;
+    
     public Window() {
         initComponents();
         this.btnSaveChanges.setVisible(false);
+        this.txtDNombreUsuario.setEditable(false);
+        this.txtDCorreoE.setEditable(false);
+        this.txtDNumCel.setEditable(false);
+        this.txtDNumTarjeta.setEditable(false);
+        this.txtDPtosAcum.setEditable(false);
     }
 
     /**
@@ -37,13 +47,13 @@ public class Window extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtDNombreUsuario = new javax.swing.JTextField();
-        txtDCorreoE = new javax.swing.JTextField();
-        txtDNumCelular = new javax.swing.JTextField();
-        txtDPtosAcum = new javax.swing.JTextField();
-        txtDNumTarjeta = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
+        txtDNombreUsuario = new javax.swing.JTextField();
+        txtDCorreoE = new javax.swing.JTextField();
+        txtDNumCel = new javax.swing.JTextField();
+        txtDPtosAcum = new javax.swing.JTextField();
+        txtDNumTarjeta = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -69,16 +79,6 @@ public class Window extends javax.swing.JPanel {
 
         jLabel6.setText("NÚMERO DE TARJETA: ");
 
-        txtDNombreUsuario.setEnabled(false);
-
-        txtDCorreoE.setEnabled(false);
-
-        txtDNumCelular.setEnabled(false);
-
-        txtDPtosAcum.setEnabled(false);
-
-        txtDNumTarjeta.setEnabled(false);
-
         btnEdit.setText("Editar");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,32 +93,40 @@ public class Window extends javax.swing.JPanel {
             }
         });
 
+        txtDNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDNombreUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDNombreUsuario)
-                                .addComponent(txtDCorreoE)
-                                .addComponent(txtDNumCelular)
-                                .addComponent(txtDPtosAcum)
-                                .addComponent(txtDNumTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSaveChanges, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSaveChanges, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDCorreoE)
+                                    .addComponent(txtDNombreUsuario)
+                                    .addComponent(txtDNumCel)
+                                    .addComponent(txtDPtosAcum)
+                                    .addComponent(txtDNumTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))))
                 .addGap(200, 200, 200))
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,30 +135,30 @@ public class Window extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(txtDNombreUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDCorreoE, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDNumCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDNumCel)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDPtosAcum, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDPtosAcum)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDNumTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(txtDNumTarjeta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEdit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSaveChanges)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         jTabbedPane1.addTab("Ver Perfil", jPanel1);
@@ -178,7 +186,7 @@ public class Window extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addComponent(jButton1)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comprar Boleto", jPanel2);
@@ -250,7 +258,7 @@ public class Window extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cerrar Sesion", jPanel4);
@@ -274,11 +282,75 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        //AQUI OBTIENE EL NOMBRE ANTES DE MODIFICAR 
+        editU.setNombreEU(txtDNombreUsuario.getText());
         this.btnSaveChanges.setVisible(true);
+        this.txtDNombreUsuario.setEditable(true);
+        this.txtDCorreoE.setEditable(true);
+        this.txtDNumCel.setEditable(true);
+        this.txtDNumTarjeta.setEditable(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+        /*A*/
+        
         this.btnSaveChanges.setVisible(false);
+        this.txtDNombreUsuario.setEditable(false);
+        this.txtDCorreoE.setEditable(false);
+        this.txtDNumCel.setEditable(false);
+        this.txtDNumTarjeta.setEditable(false);
+        
+        
+        editU= new ProcEditarUsuario();
+        boolean v = false; 
+        if((txtDNombreUsuario.getText().length()>25)||
+                (txtDCorreoE.getText().length()>35)||
+                (txtDNumCel.getText().length()>14)||
+                (txtDNumTarjeta.getText().length()>17)){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
+            txtDNombreUsuario.setText(" ");
+            txtDCorreoE.setText(" ");
+            txtDNumCel.setText(" ");
+            txtDNumTarjeta.setText(" ");
+            v = true;
+        }
+        if(!v){
+            editU.setNewNombreEU(txtDNombreUsuario.getText());
+            editU.setNewCorreoEU(txtDCorreoE.getText());
+            editU.setNewCelEU(txtDNumCel.getText());
+            editU.setNewNumTarjetaEU(txtDNumTarjeta.getText());
+            
+            //NOTAAAA: FALTA HACER MAS SET ANTES DE PODER LLAMAR CORRECTAMENTE AL 
+            //PROC ALMACENADO DE EDITAR 
+            editU.hacerConexionEditUsuario();          
+        }
+        
+        /*
+        
+        String u_nombre;
+        String u_correo;
+        String u_numCel;
+        String u_tarjeta;
+        
+        boolean v = false;
+        
+        u_nombre = this.txtDNombreUsuario.getText();
+        u_correo = this.txtDCorreoE.getText();
+        u_numCel = this.txtDNumCel.getText();
+        u_tarjeta = this.txtDNumTarjeta.getText();
+        
+        if((u_nombre.length()>25)||(u_correo.length()>35)||(u_numCel.length()>14)||(u_tarjeta.length()>17)){
+            JOptionPane.showMessageDialog(null, "Error! Datos ingresados incorrectos");
+            this.txtDNombreUsuario.setText(" ");
+            this.txtDCorreoE.setText(" ");
+            this.txtDNumCel.setText(" ");
+            this.txtDNumTarjeta.setText(" ");
+            v = true;
+        } 
+        
+        if(!v){
+            //JOptionPane.showMessageDialog(null, "Datos guardados");
+        }*/
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -288,6 +360,10 @@ public class Window extends javax.swing.JPanel {
         this.add(pc2);
         this.updateUI();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtDNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNombreUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDNombreUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -311,7 +387,7 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtDCorreoE;
     private javax.swing.JTextField txtDNombreUsuario;
-    private javax.swing.JTextField txtDNumCelular;
+    private javax.swing.JTextField txtDNumCel;
     private javax.swing.JTextField txtDNumTarjeta;
     private javax.swing.JTextField txtDPtosAcum;
     // End of variables declaration//GEN-END:variables

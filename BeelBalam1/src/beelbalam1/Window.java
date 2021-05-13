@@ -5,8 +5,7 @@
  */
 package beelbalam1;
 
-import java.beans.Statement;
-import java.sql.Connection;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 
@@ -17,12 +16,15 @@ import javax.swing.JOptionPane;
 public class Window extends javax.swing.JPanel {
 
     ProcEditarUsuario editU;
+    PanelCompras2 pc2;//temporal
+    
+    String user;
+    Connection conex;
+    CallableStatement stm;
+    ResultSet rs;
     /**
      * Creates new form Window
      */
-    PanelCompras2 pc2;//temporal
-    
-    //Connection c = bb.c;//obtenemos la conexion
     
     public Window() {
         initComponents();
@@ -36,7 +38,7 @@ public class Window extends javax.swing.JPanel {
         this.txtDPassword.setEditable(false);
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +49,11 @@ public class Window extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnAcuerdo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,6 +78,53 @@ public class Window extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         btnCerrarSesion = new javax.swing.JButton();
+
+        jPanel5.setBackground(new java.awt.Color(255, 153, 153));
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT", 2, 36)); // NOI18N
+        jLabel9.setText("Aviso de privacidad");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("El tratamiento de datos personales se realiza de conformidad con lo dispuesto en los artículos 8 de la Ley \nOrgánica de la Administración Pública Federal, (última reforma publicada en el Diario Oficial de la Federación, \nel diecinueve de mayo de dos mil diecisiete), 28, fracción III, del Reglamento de la Oficina de la Presidencia de\nla República (publicado en Diario Oficial de la Federación el nueve de diciembre de dos mil diecinueve), 117,\nfracción V de la Ley Federal de Transparencia y Acceso a la Información Pública (última reforma publicada en \nel Diario Oficial de la Federación el veintisiete de enero de dos mil diecisiete), 22, fracción II, 24, 28, 66, fracción\nI, 69 y 70, fracción II de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados.\n\nLos datos personales que usted proporcione podrán ser susceptibles, en su caso, de ser transferidos al responsa\nble competente, en términos del numeral 13, fracción V, del Reglamento de la Oficina de la Presidencia de la Re\npública, (última reforma publicada el uno de octubre de dos mil quince), en concordancia con el diverso 117,\n fracción V de la Ley Federal de Transparencia y Acceso a la Información Pública (última reforma publicada en\n el Diario Oficial de la Federación el veintisiete de enero de dos mil diecisiete).");
+        jScrollPane3.setViewportView(jTextArea1);
+
+        btnAcuerdo.setText("Estoy de acuerdo");
+        btnAcuerdo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcuerdoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAcuerdo)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(240, 240, 240)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(109, 109, 109)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAcuerdo)
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Aviso Privacidad", jPanel5);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -309,11 +363,12 @@ public class Window extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        //APAREZCAN LOS DATOS(jalan de la base)
+
         //editU.setNombreEU(txtDNombreUsuario.getText());
         this.btnSaveChanges.setVisible(true);
         this.txtDNombreUsuario.setEditable(true);
@@ -332,28 +387,19 @@ public class Window extends javax.swing.JPanel {
         this.txtDPassword.setText("**************");
         this.txtDPassword.setEditable(false);
         
-        /*editU = new ProcEditarUsuario();
-        int v = 0;
-        
-        if((txtDNombreUsuario.getText().length()<=25) && (txtDNombreUsuario.getText().length()>0))v++;
-        if((txtDCorreoE.getText().length()<=35) && (txtDCorreoE.getText().length()>0))v++;
-        if((txtDNumCel.getText().length()<=14) && (txtDNumCel.getText().length()>0))v++;
-        if((txtDNumTarjeta.getText().length()<=17) && (txtDNumTarjeta.getText().length()>0))v++;
-        if((txtDPassword.getText().length()<=20) && (txtDPassword.getText().length()>0))v++;
-        
-        System.out.println("v " + v);
-        if(v != 5){
-            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo o vacíos)");
-            txtDNombreUsuario.setText(" "); 
-            txtDCorreoE.setText(" ");
-            txtDNumCel.setText(" ");
-            txtDNumTarjeta.setText(" ");
-        }else{
-           JOptionPane.showMessageDialog(null, "Exito! Datos almacenados"); 
-        }*/
     }//GEN-LAST:event_btnSaveChangesActionPerformed
-
+    
+    public void setUser(String u){
+        this.user = u;
+        //System.out.println(this.user);
+    }
+    
+    public String getUser(){
+        return this.user;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //temporal
         pc2 = new PanelCompras2();
         pc2.setBounds(this.getBounds());
         this.removeAll();
@@ -370,18 +416,53 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDPasswordActionPerformed
 
     private void txtDNumTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNumTarjetaActionPerformed
-        /*String numeroT = JOptionPane.showInputDialog("Inserte el numero de tarjeta");
-        int cvc  = Integer.parseInt(JOptionPane.showInputDialog("Inserte el cvc ### "));
-        String primerN = JOptionPane.showInputDialog("Inserte el primer nombre del propietario");
-        String segundoN = JOptionPane.showInputDialog("Inserte el segundo nombre del propietario");
-        String primerA = JOptionPane.showInputDialog("Inserte el primer apellido del propietario");
-        String segundoA = JOptionPane.showInputDialog("Inserte el segundo apellido del propietario");
-        int fecha = Integer.parseInt(JOptionPane.showInputDialog("Inserte la fecha de expiracion MMAA"));
-        */
+        
     }//GEN-LAST:event_txtDNumTarjetaActionPerformed
+
+    private void btnAcuerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcuerdoActionPerformed
+        //System.out.println("---" + this.getUser());
+        String nombre = null;
+        String contra = null;
+        String correo = null;
+        String numero = null;
+        String tarjeta = null;
+        int ptos = 0;
+        
+        try {
+            //Conecta
+            conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
+            //Busca el usuario
+            stm = conex.prepareCall("{call GET_USERDATA(?)}");
+            stm.setString(1, this.getUser());
+            rs = stm.executeQuery();
+            if(rs.next()){ //si encuentra el usuario, verifica que la contraseña sea correcta
+                nombre = rs.getString(1);
+                contra = rs.getString(2);
+                correo = rs.getString(3);
+                numero = rs.getString(4);
+                ptos = rs.getInt(5);
+                tarjeta = rs.getString(6);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+            }
+            rs.close();
+            stm.close();
+            this.txtDNombreUsuario.setText(nombre);
+            this.txtDCorreoE.setText(correo);
+            this.txtDNumCel.setText(numero);
+            this.txtDPtosAcum.setText(Integer.toString(ptos));
+            this.txtDNumTarjeta.setText(tarjeta);
+            
+            this.btnAcuerdo.setVisible(false);
+            
+        } catch (SQLException ex) {
+            System.out.println("ERROR");
+        }
+    }//GEN-LAST:event_btnAcuerdoActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcuerdo;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSaveChanges;
@@ -394,13 +475,17 @@ public class Window extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtDCorreoE;
     private javax.swing.JTextField txtDNombreUsuario;
     private javax.swing.JTextField txtDNumCel;

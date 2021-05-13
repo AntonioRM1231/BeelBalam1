@@ -18,7 +18,23 @@ public class Window extends javax.swing.JPanel {
     ProcEditarUsuario editU;
     PanelCompras2 pc2;//temporal
     
-    String user;
+    String user; //usuario con el que se inició sesión
+    
+    
+    String oldTarjeta;
+    /*String nombre;
+    String newNombre;
+    String newContraseña;
+    String newCorreo;
+    String newCel;
+    String newNumTarjetaEU;
+    int CVC;
+    String primerNombre;
+    String segundoNombre;
+    String primerApellido;
+    String segundoApellido;
+    int fechaV;*/
+    
     Connection conex;
     CallableStatement stm;
     ResultSet rs;
@@ -36,7 +52,6 @@ public class Window extends javax.swing.JPanel {
         this.txtDPtosAcum.setEditable(false);
         this.txtDPassword.setText("**************");
         this.txtDPassword.setEditable(false);
-        
     }
     
     /**
@@ -363,13 +378,11 @@ public class Window extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        
         System.exit(0);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-
-        //editU.setNombreEU(txtDNombreUsuario.getText());
+        oldTarjeta = this.txtDNumTarjeta.getText();
         this.btnSaveChanges.setVisible(true);
         this.txtDNombreUsuario.setEditable(true);
         this.txtDCorreoE.setEditable(true);
@@ -379,6 +392,12 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+        if(this.txtDNumTarjeta.getText().equals(oldTarjeta)){
+            this.editUsuario(false);
+        }
+        else{
+            this.editUsuario(true);
+        }
         this.btnSaveChanges.setVisible(false);
         this.txtDNombreUsuario.setEditable(false);
         this.txtDCorreoE.setEditable(false);
@@ -391,7 +410,6 @@ public class Window extends javax.swing.JPanel {
     
     public void setUser(String u){
         this.user = u;
-        //System.out.println(this.user);
     }
     
     public String getUser(){
@@ -459,7 +477,33 @@ public class Window extends javax.swing.JPanel {
             System.out.println("ERROR");
         }
     }//GEN-LAST:event_btnAcuerdoActionPerformed
-
+    
+    public void editUsuario(boolean v){
+        if(v){
+            System.out.println("Cambio de tarjeta");
+        }else{
+            System.out.println("No se ha cambiado la tarjeta");
+            try {
+                String resultado = null;
+                //Conecta
+                conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
+                //Busca el usuario
+                stm = conex.prepareCall("{call EDIT_U_SIMPLE(?,?,?,?,?)}");
+                stm.setString(1, this.user);
+                stm.setString(2, this.txtDNombreUsuario.getText());
+                stm.setString(3, this.txtDCorreoE.getText());
+                stm.setString(4, this.txtDNumCel.getText());
+                stm.setString(5, this.txtDPassword.getText());
+                stm.executeQuery();
+                //if(rs.next()){ //si encuentra el usuario, realiza los cambios
+                 //   resultado = rs.getString(1);
+                 // System.out.println(resultado);
+                //}
+            } catch (SQLException ex) {
+                System.out.println("ERROR");
+            }
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcuerdo;

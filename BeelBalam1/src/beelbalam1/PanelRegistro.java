@@ -6,6 +6,8 @@
  */
 package beelbalam1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Anahi SC
@@ -16,7 +18,7 @@ public class PanelRegistro extends javax.swing.JPanel {
      * Creates new form PanelRegistro
      */
     PanelTarjeta panelTarjeta;
-    
+    //PARA ALMACENAR LOS DATOS DEL NUEVO USUARIO 
     ProcCrearUsuario paCrearUsuario;
     
     public PanelRegistro() {
@@ -125,21 +127,26 @@ public class PanelRegistro extends javax.swing.JPanel {
                 (txtCorreo.getText().length()>35)||
                 (txtNumCelular.getText().length()>14)||
                 (txtContrasenia.getText().length()>17)){
-            
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
+            txtNombreUsuario.setText(" ");
+            txtCorreo.setText(" ");
+            txtNumCelular.setText(" ");
+            txtContrasenia.setText(" ");
         }
-        
-        paCrearUsuario.setNombreU(txtNombreUsuario.getText());
-        paCrearUsuario.setContraseniaU(txtContrasenia.getText());
-        paCrearUsuario.setNumCelularU(txtNumCelular.getText());
-        paCrearUsuario.setCorreoU(txtCorreo.getText());
-        
+        else{
+            paCrearUsuario.setNombreU(txtNombreUsuario.getText());
+            paCrearUsuario.setContraseniaU(txtContrasenia.getText());
+            paCrearUsuario.setNumCelularU(txtNumCelular.getText());
+            paCrearUsuario.setCorreoU(txtCorreo.getText());
+            
 
-        //PARA IR AL PANEL DE TARJETA 
-        panelTarjeta = new PanelTarjeta();
-        panelTarjeta.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(panelTarjeta);
-        this.updateUI();
+            //PARA IR AL PANEL DE TARJETA 
+            panelTarjeta = new PanelTarjeta();
+            panelTarjeta.setBounds(this.getBounds());
+            this.removeAll();
+            this.add(panelTarjeta);
+            this.updateUI();
+        }        
     }//GEN-LAST:event_btnAgregarTarjetaActionPerformed
 
 

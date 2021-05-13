@@ -5,6 +5,8 @@
  */
 package beelbalam1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Anahi SC
@@ -15,7 +17,8 @@ public class PanelTarjeta extends javax.swing.JPanel {
      * Creates new form PanelTarjeta
      */
     Window PanelWindow;
-    
+    //PARA ALMACENAR LOS DATOS (DE TARJETA) DEL NUEVO USUARIO 2
+    ProcCrearUsuario paCrearUsuario;
     
     
     public PanelTarjeta() {
@@ -160,16 +163,45 @@ public class PanelTarjeta extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApPaternoTarjetaActionPerformed
 
     private void btnConfTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfTarjetaActionPerformed
-        //PARA OBTENER LOS DATOS DEL Panel
+        //PARA OBTENER LOS DATOS DEL Panel DE TARJETA 
+        if(txtNumTarjeta.getText().length()>17||
+                //txtNombreRepTarjeta.getText().length()>3000||
+                txtApPaternoTarjeta.getText().length()>15||
+                txtApMaternoNumTarjeta.getText().length()>15||
+                txtMesTarjeta.getText().length()>3||
+                txtAnioTarjeta.getText().length()>3||
+                txtCVCTarjeta.getText().length()>4
+                ){
+            JOptionPane.showMessageDialog(null, "¡Error! Alguno o varios datos son incorrectos (demasiado largo)");
+            txtNumTarjeta.setText(" ");
+            txtNombreRepTarjeta.setText(" ");
+            txtApPaternoTarjeta.setText(" ");
+            txtApMaternoNumTarjeta.setText(" ");
+            txtMesTarjeta.setText(" ");
+            txtAnioTarjeta.setText(" ");
+            txtCVCTarjeta.setText(" ");
+        }else{
+            //LLAMAMOS AL PROC ALMACENADO PARA QUE CREE USUARIO 
+            paCrearUsuario.setNumeroT(txtNumTarjeta.getText());
+            //de esta linea se tiene que "partir en dos" para obtener el segundo nombre
+            //si es que hay ;-; 
+            paCrearUsuario.setNombreT(txtNombreRepTarjeta.getText());
+            //paCrearUsuario.setSegNombreT();//pendiente de resolver
+            paCrearUsuario.setPrimerApT(txtApPaternoTarjeta.getText());
+            paCrearUsuario.setSegApT(txtApMaternoNumTarjeta.getText());
+            paCrearUsuario.setFechaT(Integer.parseInt(txtMesTarjeta.getText().concat(txtAnioTarjeta.getText())));
+            paCrearUsuario.setCvcT(Integer.parseInt(txtCVCTarjeta.getText()));
+            
+            //Verificar que se haya podido generar usuario
+            PanelWindow = new Window();
+            PanelWindow.setBounds(this.getBounds());
+            this.removeAll();
+            this.add(PanelWindow);
+            this.updateUI();
+        }
 
 
-
-        //Verificar que se haya podido generar usuario
-        PanelWindow = new Window();
-        PanelWindow.setBounds(this.getBounds());
-        this.removeAll();
-        this.add(PanelWindow);
-        this.updateUI();
+        
     }//GEN-LAST:event_btnConfTarjetaActionPerformed
 
 

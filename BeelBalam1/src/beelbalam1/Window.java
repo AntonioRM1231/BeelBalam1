@@ -19,21 +19,7 @@ public class Window extends javax.swing.JPanel {
     PanelCompras2 pc2;//temporal
     
     String user; //usuario con el que se inició sesión
-    
-    
     String oldTarjeta;
-    /*String nombre;
-    String newNombre;
-    String newContraseña;
-    String newCorreo;
-    String newCel;
-    String newNumTarjetaEU;
-    int CVC;
-    String primerNombre;
-    String segundoNombre;
-    String primerApellido;
-    String segundoApellido;
-    int fechaV;*/
     
     Connection conex;
     CallableStatement stm;
@@ -50,7 +36,6 @@ public class Window extends javax.swing.JPanel {
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
         this.txtDPtosAcum.setEditable(false);
-        this.txtDPassword.setText("**************");
         this.txtDPassword.setEditable(false);
     }
     
@@ -392,8 +377,9 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
+        String u = null;
         if(this.txtDNumTarjeta.getText().equals(oldTarjeta)){
-            this.editUsuario(false);
+            u = this.editUsuario(false);
         }
         else{
             this.editUsuario(true);
@@ -403,9 +389,21 @@ public class Window extends javax.swing.JPanel {
         this.txtDCorreoE.setEditable(false);
         this.txtDNumCel.setEditable(false);
         this.txtDNumTarjeta.setEditable(false);
-        this.txtDPassword.setText("**************");
         this.txtDPassword.setEditable(false);
         
+        System.out.println(u);
+        if(u.equals("SC")){
+            this.getData(this.getUser(),2);
+            JOptionPane.showMessageDialog(null, "Sin cambios en el usuario");
+        }
+        else if(u.equals("UYE")) {
+            JOptionPane.showMessageDialog(null, "Usuario no válido");
+            this.getData(this.getUser(),2);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Usuario cambiado con exito");
+            this.getData(u,2);
+        }
     }//GEN-LAST:event_btnSaveChangesActionPerformed
     
     public void setUser(String u){
@@ -438,20 +436,23 @@ public class Window extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDNumTarjetaActionPerformed
 
     private void btnAcuerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcuerdoActionPerformed
-        //System.out.println("---" + this.getUser());
+        String u = this.getUser();
+        this.getData(u,1);
+    }//GEN-LAST:event_btnAcuerdoActionPerformed
+    
+    public void getData(String user,int n){
         String nombre = null;
         String contra = null;
         String correo = null;
         String numero = null;
         String tarjeta = null;
         int ptos = 0;
-        
         try {
             //Conecta
             conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
             //Busca el usuario
             stm = conex.prepareCall("{call GET_USERDATA(?)}");
-            stm.setString(1, this.getUser());
+            stm.setString(1, user);
             rs = stm.executeQuery();
             if(rs.next()){ //si encuentra el usuario, verifica que la contraseña sea correcta
                 nombre = rs.getString(1);
@@ -471,20 +472,20 @@ public class Window extends javax.swing.JPanel {
             this.txtDPtosAcum.setText(Integer.toString(ptos));
             this.txtDNumTarjeta.setText(tarjeta);
             
-            this.btnAcuerdo.setVisible(false);
+            if(n == 1) this.btnAcuerdo.setVisible(false);
             
         } catch (SQLException ex) {
             System.out.println("ERROR");
         }
-    }//GEN-LAST:event_btnAcuerdoActionPerformed
+    }
     
-    public void editUsuario(boolean v){
+    public String editUsuario(boolean v){
+        String r = null;
         if(v){
             System.out.println("Cambio de tarjeta");
         }else{
             System.out.println("No se ha cambiado la tarjeta");
             try {
-                String resultado = null;
                 //Conecta
                 conex = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-KT6L84G:1433;databaseName=BEEL_BALAM", "sa", "2020640576");
                 //Busca el usuario
@@ -494,15 +495,13 @@ public class Window extends javax.swing.JPanel {
                 stm.setString(3, this.txtDCorreoE.getText());
                 stm.setString(4, this.txtDNumCel.getText());
                 stm.setString(5, this.txtDPassword.getText());
-                stm.executeQuery();
-                //if(rs.next()){ //si encuentra el usuario, realiza los cambios
-                 //   resultado = rs.getString(1);
-                 // System.out.println(resultado);
-                //}
+                rs = stm.executeQuery();
+                if(rs.next())r = rs.getString(1);
             } catch (SQLException ex) {
                 System.out.println("ERROR");
             }
         }
+        return r;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
